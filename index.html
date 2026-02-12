@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webpage ni Ariane</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <h2>Please don't click the button below!</h2>
+        <button id="clickBtn" onclick="showMessage()">⚠️</button>
+    </div>
+
+    <div id="message">
+        I MISS YOU!
+    </div>
+
+    <script>
+        function showMessage() {
+            const container = document.getElementById("container");
+            const message = document.getElementById("message");
+            const button = document.getElementById("clickBtn");
+
+            button.style.pointerEvents = "none";
+            button.style.opacity = "0.5";
+
+            container.style.display = "none";
+            message.style.display = "block";
+            message.style.animation = "slideUp 0.8s ease-out forwards";
+
+            setTimeout(() => {
+                message.style.animation = "fadeOut 0.8s ease-in forwards";
+            }, 1000);
+
+            setTimeout(() => {
+                container.style.display = "flex";
+                message.style.display = "none";
+                button.style.pointerEvents = "auto";
+                button.style.opacity = "1";
+            }, 1800);
+        }
+    </script>
+
+</body>
+
+</html>
